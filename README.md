@@ -1,11 +1,12 @@
 # Calculadora de Índice de Massa Corporal (IMC)
 
-Este projeto é uma aplicação web que permite aos usuários calcular o seu Índice de Massa Corporal (IMC) de forma rápida e interativa. A aplicação foi desenvolvida utilizando o framework Django para o backend e a biblioteca React para o frontend.
+Este projeto é uma aplicação web que permite aos usuários calcular o seu Índice de Massa Corporal (IMC) de forma rápida e interativa. A aplicação foi desenvolvida utilizando o framework Django para o backend e a biblioteca React para o frontend, com o MongoDB como banco de dados rodando em um container Docker.
 
 ## Tecnologias Utilizadas
 
 - **Backend:** Django
 - **Frontend:** React
+- **Banco de Dados:** MongoDB (Docker)
 - **Controle de Versão:** Git e GitHub
 
 ## Pré-requisitos
@@ -16,10 +17,19 @@ Antes de iniciar, certifique-se de que você tem o seguinte software instalado e
 - Node.js (14 ou superior)
 - npm (6 ou superior)
 - Git
+- Docker
 
 ## Instalação
 
 Para configurar o ambiente de desenvolvimento e executar o projeto localmente, siga os passos abaixo:
+
+### Banco de Dados (MongoDB)
+
+1. Inicie o MongoDB usando Docker:
+
+```bash
+docker run --name mongodb-imc -d -p 27017:27017 mongo
+```
 
 ### Backend (Django)
 
@@ -56,6 +66,7 @@ python manage.py runserver
 ```
 
 O backend estará rodando em `http://localhost:8000`.
+
 
 ### Frontend (React)
 
