@@ -95,6 +95,7 @@ const IMCResults = () => {
         </Table>
       </TableContainer>
       <TablePagination
+        data-cy="dropdownRegistrosPorPagina"
         rowsPerPageOptions={[5, 10, 25]}
         component="div"
         count={filteredRecords.length}
