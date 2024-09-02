@@ -1,10 +1,10 @@
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from calculadora.views import IMCViewSet
+# imc_calculadora/urls.py
 
-router = DefaultRouter()
-router.register(r'imc', IMCViewSet)
+from django.contrib import admin
+from django.urls import path, include
 
 urlpatterns = [
-    path('api/', include(router.urls)),
+    path('admin/', admin.site.urls),
+    path('api/', include('calculadora.urls')),  # Inclui as URLs do aplicativo calculadora
+    # ... outras URLs do projeto ...
 ]

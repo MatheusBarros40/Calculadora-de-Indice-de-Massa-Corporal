@@ -1,11 +1,14 @@
-from rest_framework import viewsets
+from rest_framework import mixins, viewsets
 from .models import IMC
 from .serializers import IMCSerializer
 
-class IMCViewSet(viewsets.ModelViewSet):
-    queryset = IMC.objects.all()
+class IMCViewSet(mixins.ListModelMixin,
+                  mixins.CreateModelMixin,
+                  viewsets.GenericViewSet):
     serializer_class = IMCSerializer
 
+    def get_queryset(self):
+        return IMC.objects.all()
+
     def perform_create(self, serializer):
-        instance = serializer.save()
-        instance.calcular_imc()
+        serializer.save()
