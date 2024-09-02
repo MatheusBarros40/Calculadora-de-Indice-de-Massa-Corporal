@@ -86,13 +86,24 @@ WSGI_APPLICATION = 'imc_calculadora.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# Importe o método connect do MongoEngine
+from mongoengine import connect
+# Nome do seu banco de dados MongoDB
+# Host e porta do seu banco de dados MongoDB (ajuste conforme necessário)
+MONGO_DATABASE_NAME = 'data_imc'
+MONGO_HOST = 'localhost'
+MONGO_PORT = 27017
 
+# Conecte-se ao MongoDB
+connect(db=MONGO_DATABASE_NAME, host=MONGO_HOST, port=MONGO_PORT)
+
+# Remova ou comente a configuração DATABASES inteira
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
